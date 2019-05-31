@@ -1,5 +1,7 @@
 package com.yth520web.page;
 
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -24,6 +26,8 @@ public class FrameActivity extends FragmentActivity {
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
     private RadioButton rbtHome,rbtFunc,rbtSetting;
+    RadioButton[] rb;
+    Drawable drawables[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,22 @@ public class FrameActivity extends FragmentActivity {
         rbtFunc = (RadioButton)findViewById(R.id.radioFunc);
         rbtSetting = (RadioButton)findViewById(R.id.radioSetting);
 
+         rb = new RadioButton[3];
+        rb[0] = rbtHome;
+        rb[1] = rbtFunc;
+        rb[2] = rbtSetting;
+        for (int i = 0; i < rb.length; i++) {
+            //挨着给每个RadioButton加入drawable限制边距以控制显示大小
+            drawables = rb[i].getCompoundDrawables();
+            //获取drawables，2/5表示图片要缩小的比例
+            Rect r = new Rect(0, 0, drawables[1].getMinimumWidth() * 1/2, drawables[1].getMinimumHeight() * 1/2);
+            //定义一个Rect边界
+            drawables[1].setBounds(r);
+            //给每一个RadioButton设置图片大小
+            rb[i].setCompoundDrawables(null, drawables[1], null, null);
+        }
+
+
         radioGroup = (RadioGroup)findViewById(R.id.buttomGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -55,6 +75,7 @@ public class FrameActivity extends FragmentActivity {
                 switch (checkedId){
                     case R.id.radioHome:
                         fragmentTransaction.show(mFragments[0]).commit();
+
                         break;
                     case  R.id.radioFunc:
                         fragmentTransaction.show(mFragments[1]).commit();

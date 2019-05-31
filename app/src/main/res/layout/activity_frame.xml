@@ -31,26 +31,27 @@
         android:id="@+id/buttomGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioHome"
             style="@style/ru_btn"
-            android:drawableTop="@drawable/sheep"
-            android:text="首页" />
+            android:drawableTop="@drawable/selector"
+            android:checked="true"
+             />
 
         <RadioButton
             android:id="@+id/radioFunc"
             style="@style/ru_btn"
-            android:drawableTop="@drawable/sheep"
-            android:text="功能" />
+            android:drawableTop="@drawable/selector2"
+            />
 
         <RadioButton
             android:id="@+id/radioSetting"
             style="@style/ru_btn"
-            android:drawableTop="@drawable/sheep"
-            android:text="设置" />
+            android:drawableTop="@drawable/selector3"
+             />
     </RadioGroup>
 
 
