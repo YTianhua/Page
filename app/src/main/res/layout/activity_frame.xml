@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FrameActivity">
+   <!-- 容器页面的布局
+   tools:context=".FrameActivity"是为了找到对应的类和方法-->
+    <fragment
+        android:id="@+id/fragment_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:name="com.yth520web.page.HomeFragment"/>
+    <fragment
+        android:id="@+id/fragment_func"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:name="com.yth520web.page.FuncFragment"/>
+    <fragment
+        android:id="@+id/fragment_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:name="com.yth520web.page.SettingFragment"/>
+    <!--用三个控件控制三个fragment-->
+    <RadioGroup
+        android:id="@+id/buttomGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioHome"
+            style="@style/ru_btn"
+            android:drawableTop="@drawable/sheep"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/radioFunc"
+            style="@style/ru_btn"
+            android:drawableTop="@drawable/sheep"
+            android:text="功能" />
+
+        <RadioButton
+            android:id="@+id/radioSetting"
+            style="@style/ru_btn"
+            android:drawableTop="@drawable/sheep"
+            android:text="设置" />
+    </RadioGroup>
+
+
+</LinearLayout>
